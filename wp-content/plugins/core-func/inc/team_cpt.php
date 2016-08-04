@@ -12,7 +12,7 @@ function cf_team_cpt() {
 
 // Set UI labels for Custom Post Type
     $labels = array(
-        'name'                => _x( 'Team Member', 'Post Type General Name', 'cf' ),
+        'name'                => _x( 'Team Members', 'Post Type General Name', 'cf' ),
         'singular_name'       => _x( 'Team Member', 'Post Type Singular Name', 'cf' ),
         'menu_name'           => __( 'Team Members', 'cf' ),
         'parent_item_colon'   => __( 'Parent Team Member', 'cf' ),
@@ -66,17 +66,17 @@ function cf_team_members_metabox() {
         ) );
      	$cmb->add_field( array(
             'name'    => 'Position',
-            'id'      => $prefix . '_position',
+            'id'      => $prefix . 'position',
             'type'    => 'text'
         ) );
         $cmb->add_field( array(
             'name'    => 'Facebook Link',
-            'id'      => $prefix . '_facebookurl',
+            'id'      => $prefix . 'facebookurl',
             'type'    => 'text_url'
         ) );
         $cmb->add_field( array(
             'name'    => 'Twitter Link',
-            'id'      => $prefix . '_twitterurl',
+            'id'      => $prefix . 'twitterurl',
             'type'    => 'text_url'
         ) );
 }
