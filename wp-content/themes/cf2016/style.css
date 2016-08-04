@@ -29,3 +29,56 @@ body{
 .site-header {
     padding: 2em 4.5455% 1em;
 }
+
+
+/******* Team Member Page Styles *******/
+
+.team{
+	border-radius: 3px;
+	margin-bottom: 1.2em;
+}
+
+.team_wrapper{
+	border: 1px solid #e4e4e4;
+	border-radius: 3px;
+}
+
+.team_content{
+	padding: 0 1.3em;
+}
+
+.team_inner_center,
+.the_content{
+	text-align: center;
+}
+
+.the_content p{
+	text-align: left;
+}
+
+.team_inner_center h3{
+	font-size: 1.2em;
+	margin-bottom: .5em;
+}
+
+.team_inner_center p.position{
+	font-size: 0.85em;
+}
+
+.social_links,
+.more_button,
+.the_content{
+	margin: 0 0 1em 0;
+}
+
+.social_links a{
+	margin: 0 .5em 0 0;
+}
+
+.hide,
+.the_content {
+  display: none;
+}
+
+
+/* Media Queries */
