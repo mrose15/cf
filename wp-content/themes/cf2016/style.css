@@ -26,8 +26,22 @@ body{
 	border-top: none;
 }
 
-.site-header {
+.site-header,
+.site-content {
     padding: 2em 4.5455% 1em;
+}
+
+.clear {
+    clear: left;
+}
+
+label{
+	width: 100%;
+	margin-bottom: 0;
+}
+
+.search-submit:before {
+    color: #fff;
 }
 
 
@@ -48,11 +62,11 @@ body{
 }
 
 .team_inner_center,
-.the_content{
+.teamcpt_content{
 	text-align: center;
 }
 
-.the_content p{
+.teamcpt_content p{
 	text-align: left;
 }
 
@@ -67,7 +81,7 @@ body{
 
 .social_links,
 .more_button,
-.the_content{
+.teamcpt_content{
 	margin: 0 0 1em 0;
 }
 
@@ -75,10 +89,15 @@ body{
 	margin: 0 .5em 0 0;
 }
 
-.hide,
-.the_content {
-  display: none;
+.cf_content_to_hide{
+	display: none;
 }
 
 
+
 /* Media Queries */
+@media screen and (max-width: 991px) {
+  img{
+    width: 100%;
+  }
+}
