@@ -23,25 +23,36 @@ get_header(); ?>
 
 		<?php if ( have_posts() ) : ?>
 
-			<header class="page-header">
+			<h2 class="page-header">
 				<?php
 					post_type_archive_title( '', true );
-					the_archive_description( '<div class="taxonomy-description">', '</div>' );
 				?>
-			</header>
-			<section class="team_container">
+			</h2>
+			<section class="row team_container">
 
 			<?php
-			while ( have_posts() ) : the_post(); // Start the Loop.
+			//while ( have_posts() ) : the_post(); 
+			/*
+			Created the standard while loop originally but then realized I would need the foreach 
+			loop in order to use the $args array below to filter the posts with parameters
+			*/
+
+
+			if (is_post_type_archive('cf_team_members')){
+				$args = array( 'post_type' => 'cf_team_members', 'posts_per_page' => 12, 'orderby'=> 'title', 'order' => 'ASC' );
+				$teamposts = get_posts( $args ); 
+			}
+			foreach( $teamposts as $post ) :	
+				setup_postdata($post); $count++; // Start the Loop with a counter.
 
 				// Get 'team' posts
-				$team_posts = get_posts( array(
+				/*$team_posts = get_posts( array(
 					'post_type' => 'cf_team_members',
-					'posts_per_page' => 12, // 12 posts per page
+					'posts_per_page' => -1, // 12 posts per page
 					'orderby' => 'title', // Order alphabetically by name
-				) );
+					'order'   => 'ASC',
+				) );*/
 
-				if ( $team_posts ):
 				?>
 					
 					<?php 
@@ -69,22 +80,35 @@ get_header(); ?>
 										<a class="btn btn-social-icon btn-twitter" href="<?php echo $twitter; ?>"><span class="fa fa-twitter"></span></a>
 										<?php endif; ?>
 									</div>
-									<button class="more_button btn btn-primary">Read More</button>
 								</div>	
-								<div class="the_content">
-									<?php the_content(); ?>
-									<button class="less_button btn btn-primary">Read Less</button>
+								<div class="teamcpt_content">
+									<div class="cf_content_to_hide more">
+										<?php the_content(); ?>	
+										<!--<button class="btn btn-primary">Read Less</button>-->
+									</div>
+									<button class="btn btn-primary">Read More</button>
 								</div>
 							</div>
 						</div>	
 					</article><!-- /.team -->
-				
-				<?php endif;
+			    <?php 
+			    if ( 0 == $count%3 ) {
+		        	echo '<div class="clear"></div>';
+		    	}
 
-		endwhile; // End the loop. ?>
-		</section><!-- /.row -->
-		<?php endif;
+			    endforeach; ?>		
+				
+		<?php 
+
+			//endwhile; // End the loop. 
+
+			if ( 0 != $count%3 ) {
+			   echo '<div class="clear"></div>';
+			}
+			
 		?>
+		</section><!-- /.row -->
+		<?php endif; ?>
 
 		</main><!-- .site-main -->
 	</div><!-- .content-area -->
